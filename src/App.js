@@ -13,9 +13,9 @@ class App extends Component {
     if (request.status === 200) {
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
-      console.log(data)
+      console.log(data.rates)
       ReactDOM.render(
-        <MainContainer rates={data} />,
+        <MainContainer rates={data.rates} />,
         document.getElementById('root')
       );
     }
