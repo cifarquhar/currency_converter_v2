@@ -9,7 +9,12 @@ class CurrencyValue extends Component{
         this.outputService = props.outputService;
         this.activeCurrency = "AED";
         this.selectorSubscription = this.selectorService.currencies().subscribe(res => {
+                let targetField = document.getElementById(this.props.side);
+                let targetValue = targetField.value;
+                targetValue = this.convertToEUR(targetValue);
                 this.activeCurrency = res
+                targetValue = this.convertFromEUR(targetValue);
+                targetField.value = targetValue.toFixed(2);
                 console.log("receiving on " + props.side, res)
                 console.log(this.activeCurrency);
             });
