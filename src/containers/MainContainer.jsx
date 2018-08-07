@@ -24,9 +24,9 @@ class MainContainer extends Component{
 		const p = this.props;
 		return(
 			<div>
-				<CurrencySelector rates={p.rates} />
+				<CurrencySelector rates={p.rates} onChange={this.updateLeftCurrency.bind(this)}/>
 				<CurrencyValue value={this.leftValue}/>
-				<CurrencySelector rates={p.rates} />
+				<CurrencySelector rates={p.rates} onChange={this.updateRightCurrency.bind(this)}/>
 				<CurrencyValue value={this.rightValue}/>
 			</div>
 			
