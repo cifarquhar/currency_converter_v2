@@ -14,9 +14,9 @@ class CurrencyValue extends Component{
                 console.log(this.activeCurrency);
             });
         this.inputSubscription = this.inputService.values().subscribe(res => {
-                let valueFromEUR = res * this.props.rates[this.activeCurrency];
-                document.getElementById(this.props.side).value = valueFromEUR.toFixed(2);
-                console.log(valueFromEUR);
+                const valueToUpdate = this.convertFromEUR(res);
+                document.getElementById(this.props.side).value = valueToUpdate.toFixed(2);
+                console.log(valueToUpdate);
             });
     }
 
@@ -29,6 +29,11 @@ class CurrencyValue extends Component{
     convertToEUR(value){
         const valueToEUR = value / this.props.rates[this.activeCurrency];
         return valueToEUR;
+    }
+
+    convertFromEUR(value){
+        const valueFromEUR = value * this.props.rates[this.activeCurrency];
+        return valueFromEUR;
     }
 
     render(){
