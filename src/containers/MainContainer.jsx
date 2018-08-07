@@ -32,9 +32,9 @@ class MainContainer extends Component{
 		return(
 			<div>
 				<CurrencySelector rates={p.rates} selectorService={leftSelectorService}/>
-				<CurrencyValue side={"left"} value={this.leftValue} selectorService={leftSelectorService} outputService={leftInputService} inputService={rightInputService}/>
+				<CurrencyValue side={"left"} rates={p.rates} value={this.leftValue} selectorService={leftSelectorService} outputService={leftInputService} inputService={rightInputService}/>
 				<CurrencySelector rates={p.rates} selectorService={rightSelectorService}/>
-				<CurrencyValue side={"right"} value={this.rightValue} selectorService={rightSelectorService} outputService={rightInputService} inputService={leftInputService}/>
+				<CurrencyValue side={"right"} rates={p.rates} value={this.rightValue} selectorService={rightSelectorService} outputService={rightInputService} inputService={leftInputService}/>
 			</div>
 			
 		)
