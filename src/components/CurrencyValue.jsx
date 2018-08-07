@@ -9,19 +9,21 @@ class CurrencyValue extends Component{
         this.outputService = props.outputService;
         this.activeCurrency = "AED";
         this.selectorSubscription = this.selectorService.currencies().subscribe(res => {
-                // this.setState({ greeting: res });
                 this.activeCurrency = res
-            console.log("receiving on " + props.side, res)
-            console.log(this.activeCurrency);
+                console.log("receiving on " + props.side, res)
+                console.log(this.activeCurrency);
             });
         this.inputSubscription = this.inputService.values().subscribe(res => {
-            // this.setState({ greeting: res });
-            console.log("receiving on " + props.side, res)
-        });
+                // console.log("receiving on " + props.side, res)
+                let valueFromEUR = res * this.props.rates[this.activeCurrency];
+                console.log(valueFromEUR);
+            });
     }
 
     sendUpdate(event) {
-        this.outputService.emit(event.target.value)
+        let valueToEUR = event.target.value / this.props.rates[this.activeCurrency];
+        console.log(valueToEUR);
+        this.outputService.emit(valueToEUR);
     }
 
     render(){
