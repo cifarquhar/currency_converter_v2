@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import CurrencySelector from "../components/CurrencySelector";
+import CurrencyValue from "../components/CurrencyValue";
 
 class MainContainer extends Component{
 	
@@ -8,7 +9,9 @@ class MainContainer extends Component{
 		return(
 			<div>
 				<CurrencySelector rates={p.rates} />
+				<CurrencyValue />
 				<CurrencySelector rates={p.rates} />
+				<CurrencyValue />
 			</div>
 			
 		)
