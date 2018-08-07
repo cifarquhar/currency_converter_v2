@@ -6,18 +6,19 @@ class CurrencyValue extends Component{
         super(props);
         this.selectorService = props.selectorService;
         this.inputService = props.inputService;
+        this.outputService = props.outputService;
         this.selectorSubscription = this.selectorService.currencies().subscribe(res => {
                 // this.setState({ greeting: res });
-                console.log(res)
+            console.log("receiving on " + props.side, res)
             });
         this.inputSubscription = this.inputService.values().subscribe(res => {
             // this.setState({ greeting: res });
-            console.log(res)
+            console.log("receiving on " + props.side, res)
         });
     }
 
     sendUpdate(event) {
-        this.inputService.emit(event.target.value)
+        this.outputService.emit(event.target.value)
     }
 
     render(){

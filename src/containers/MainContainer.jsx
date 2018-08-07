@@ -4,8 +4,10 @@ import CurrencyValue from "../components/CurrencyValue";
 import SelectorService from "../models/SelectorService";
 import InputService from "../models/InputService";
 
-const selectorService = new SelectorService();
-const inputService = new InputService();
+const leftSelectorService = new SelectorService();
+const rightSelectorService = new SelectorService();
+const leftInputService = new InputService();
+const rightInputService = new InputService();
 
 class MainContainer extends Component{
 
@@ -29,10 +31,10 @@ class MainContainer extends Component{
 		const p = this.props;
 		return(
 			<div>
-				<CurrencySelector rates={p.rates} selectorService={selectorService}/>
-				<CurrencyValue value={this.leftValue} selectorService={selectorService} inputService={inputService}/>
-				<CurrencySelector rates={p.rates} selectorService={selectorService}/>
-				<CurrencyValue value={this.rightValue} selectorService={selectorService} inputService={inputService}/>
+				<CurrencySelector rates={p.rates} selectorService={leftSelectorService}/>
+				<CurrencyValue side={"left"} value={this.leftValue} selectorService={leftSelectorService} outputService={leftInputService} inputService={rightInputService}/>
+				<CurrencySelector rates={p.rates} selectorService={rightSelectorService}/>
+				<CurrencyValue side={"right"} value={this.rightValue} selectorService={rightSelectorService} outputService={rightInputService} inputService={leftInputService}/>
 			</div>
 			
 		)
