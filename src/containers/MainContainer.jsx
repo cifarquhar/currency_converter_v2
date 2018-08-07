@@ -11,6 +11,14 @@ class MainContainer extends Component{
 		this.leftValue = 0;
 		this.rightValue = 0;
 	}
+
+	updateLeftCurrency(currency){
+		this.leftCurrency = currency;
+	}
+
+	updateRightCurrency(currency){
+		this.rightCurrency = currency;
+	}
 	
 	render(){
 		const p = this.props;
