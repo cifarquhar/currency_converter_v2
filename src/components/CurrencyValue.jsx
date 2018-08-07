@@ -14,8 +14,8 @@ class CurrencyValue extends Component{
                 console.log(this.activeCurrency);
             });
         this.inputSubscription = this.inputService.values().subscribe(res => {
-                // console.log("receiving on " + props.side, res)
                 let valueFromEUR = res * this.props.rates[this.activeCurrency];
+                document.getElementById(this.props.side).value = valueFromEUR.toFixed(2);
                 console.log(valueFromEUR);
             });
     }
@@ -28,7 +28,7 @@ class CurrencyValue extends Component{
 
     render(){
         return(
-            <input type="number" min="0" placeholder={this.props.value} onChange={this.sendUpdate.bind(this)}/>
+            <input id={this.props.side} type="number" min="0" placeholder={this.props.value} onChange={this.sendUpdate.bind(this)}/>
         )
     }
 
