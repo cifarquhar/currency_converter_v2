@@ -1,6 +1,6 @@
 import { Subject } from "rxjs";
 
-class CommunicationService {
+class SelectorService {
 
     constructor() {
         this.subject = new Subject();
@@ -15,4 +15,4 @@ class CommunicationService {
     }
 } 
 
-export default CommunicationService
+export default SelectorService
