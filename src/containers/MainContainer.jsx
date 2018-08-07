@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import CurrencySelector from "../components/CurrencySelector";
 import CurrencyValue from "../components/CurrencyValue";
+import CommunicationService from "../models/CommunicationService";
+
+const communicationService = new CommunicationService();
 
 class MainContainer extends Component{
 
@@ -24,10 +27,10 @@ class MainContainer extends Component{
 		const p = this.props;
 		return(
 			<div>
-				<CurrencySelector rates={p.rates} onChange={this.updateLeftCurrency.bind(this)}/>
-				<CurrencyValue value={this.leftValue}/>
-				<CurrencySelector rates={p.rates} onChange={this.updateRightCurrency.bind(this)}/>
-				<CurrencyValue value={this.rightValue}/>
+				<CurrencySelector rates={p.rates} communicationsService={communicationService}/>
+				<CurrencyValue value={this.leftValue} communicationsService={communicationService}/>
+				<CurrencySelector rates={p.rates} communicationsService={communicationService}/>
+				<CurrencyValue value={this.rightValue} communicationsService={communicationService}/>
 			</div>
 			
 		)

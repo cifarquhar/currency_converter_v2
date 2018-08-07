@@ -6,6 +6,12 @@ class CurrencySelector extends Component{
     
     constructor(props){
         super(props)
+        this.communicationsService = props.communicationsService;
+    }
+
+    sendUpdate(event){
+        console.log(event)
+        this.communicationsService.emit(event.target.value)
     }
     
     render(){
@@ -19,7 +25,7 @@ class CurrencySelector extends Component{
         });
         
         return (
-            <select>
+            <select onChange={this.sendUpdate.bind(this)}>
                 {options}
             </select>
         )
