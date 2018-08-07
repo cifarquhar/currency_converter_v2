@@ -21,9 +21,14 @@ class CurrencyValue extends Component{
     }
 
     sendUpdate(event) {
-        let valueToEUR = event.target.value / this.props.rates[this.activeCurrency];
-        console.log(valueToEUR);
-        this.outputService.emit(valueToEUR);
+        let valueToSend = this.convertToEUR(event.target.value);
+        console.log(valueToSend);
+        this.outputService.emit(valueToSend);
+    }
+
+    convertToEUR(value){
+        const valueToEUR = value / this.props.rates[this.activeCurrency];
+        return valueToEUR;
     }
 
     render(){
