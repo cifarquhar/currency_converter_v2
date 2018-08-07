@@ -10,7 +10,6 @@ class CurrencySelector extends Component{
     }
 
     sendUpdate(event){
-        console.log(event)
         this.selectorService.emit(event.target.value)
     }
     
