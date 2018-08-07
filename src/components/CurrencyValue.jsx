@@ -4,7 +4,7 @@ class CurrencyValue extends Component{
 
     render(){
         return(
-            <input placeholder={"value"}/>
+            <input type="number" min="0" placeholder={this.props.value}/>
         )
     }
 
