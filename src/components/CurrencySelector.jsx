@@ -6,12 +6,12 @@ class CurrencySelector extends Component{
     
     constructor(props){
         super(props)
-        this.communicationsService = props.communicationsService;
+        this.selectorService = props.selectorService;
     }
 
     sendUpdate(event){
         console.log(event)
-        this.communicationsService.emit(event.target.value)
+        this.selectorService.emit(event.target.value)
     }
     
     render(){

@@ -4,8 +4,8 @@ class CurrencyValue extends Component{
 
     constructor(props){
         super(props);
-        this.communicationsService = props.communicationsService;
-        this.subscription = this.communicationsService.currencies().subscribe(res => {
+        this.selectorService = props.selectorService;
+        this.subscription = this.selectorService.currencies().subscribe(res => {
                 // this.setState({ greeting: res });
                 console.log(res)
             });
