@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {FormGroup, FormControl} from "react-bootstrap";
 import CODES from "../constants/codes";
 
 class CurrencySelector extends Component{
