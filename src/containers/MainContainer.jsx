@@ -51,6 +51,8 @@ class MainContainer extends Component{
 							</Panel>
 						</Col>
 						<Col xs={2}>
+							<span className="glyphicon glyphicon-arrow-left"></span>
+							<span className="glyphicon glyphicon-arrow-right"></span>
 						</Col>
 						<Col xs={5}>
 							<Panel>
