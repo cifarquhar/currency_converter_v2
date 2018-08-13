@@ -32,6 +32,8 @@ class MainContainer extends Component{
 		const p = this.props;
 		return(
 			<div>
+				<h1>Currency Converter</h1>
+				<h3>Select a currency from each dropdown and enter a value to convert</h3>
 				<Grid>
 					<Row>
 						<Col xs={5}>
