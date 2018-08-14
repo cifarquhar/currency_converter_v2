@@ -38,7 +38,8 @@ class MainContainer extends Component{
 					<Row>
 						<Col xs={5}>
 							<Panel>
-								<CurrencySelector 
+								<CurrencySelector
+									side={"left"}  
 									rates={p.rates} 
 									selectorService={leftSelectorService}
 								/>
@@ -59,6 +60,7 @@ class MainContainer extends Component{
 						<Col xs={5}>
 							<Panel>
 								<CurrencySelector 
+									side={"right"} 
 									rates={p.rates} 
 									selectorService={rightSelectorService}
 								/>
