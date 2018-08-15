@@ -14,10 +14,6 @@ class MainContainer extends Component{
 	
 	constructor(props){
 		super(props);
-		this.leftCurrency = null;
-		this.rightCurrency = null;
-		this.leftValue = 0;
-		this.rightValue = 0;
 	}
 	
 	updateLeftCurrency(currency){
@@ -46,7 +42,6 @@ class MainContainer extends Component{
 								<CurrencyValue 
 									side={"left"} 
 									rates={p.rates} 
-									value={this.leftValue} 
 									selectorService={leftSelectorService} 
 									outputService={leftInputService} 
 									inputService={rightInputService}
@@ -67,7 +62,6 @@ class MainContainer extends Component{
 								<CurrencyValue 
 									side={"right"} 
 									rates={p.rates} 
-									value={this.rightValue} 
 									selectorService={rightSelectorService} 
 									outputService={rightInputService} 
 									inputService={leftInputService}

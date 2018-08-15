@@ -43,7 +43,7 @@ class CurrencyValue extends Component{
 				id={this.props.side} 
 				type="number" 
 				min="0" 
-				placeholder={this.props.value} 
+				placeholder="0" 
 				onChange={this.sendUpdate.bind(this)}
 			/>
 		)
