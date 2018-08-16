@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import UNICODE from "../constants/unicode";
 
 class CurrencyValue extends Component{
 	
@@ -39,13 +40,16 @@ class CurrencyValue extends Component{
 	
 	render(){
 		return(
-			<input 
-				id={this.props.side} 
-				type="number" 
-				min="0" 
-				placeholder="0" 
-				onChange={this.sendUpdate.bind(this)}
-			/>
+			<span>
+				{'\u00A4  '}
+				<input 
+					id={this.props.side} 
+					type="number" 
+					min="0" 
+					placeholder="0" 
+					onChange={this.sendUpdate.bind(this)}
+				/>
+			</span>
 		)
 	}
 	
