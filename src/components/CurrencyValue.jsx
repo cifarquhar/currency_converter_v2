@@ -9,11 +9,14 @@ class CurrencyValue extends Component{
 		this.inputService = props.inputService;
 		this.outputService = props.outputService;
 		this.activeCurrency = "AED";
+		this.currencyUnicode = '\u00A4  ';
 		this.selectorSubscription = this.selectorService.currencies().subscribe(res => {
 			let targetField = document.getElementById(this.props.side);
 			let targetValue = targetField.value;
 			targetValue = this.convertToEUR(targetValue);
-			this.activeCurrency = res
+			this.activeCurrency = res;
+			this.currencyUnicode = UNICODE[res] + "  ";
+			document.getElementById(this.props.side + "unicode").textContent = this.currencyUnicode;
 			targetValue = this.convertFromEUR(targetValue);
 			targetField.value = targetValue.toFixed(2);
 		});
@@ -41,7 +44,9 @@ class CurrencyValue extends Component{
 	render(){
 		return(
 			<span>
-				{'\u00A4  '}
+				<span id={this.props.side + "unicode"}>
+					{this.currencyUnicode}
+				</span>
 				<input 
 					id={this.props.side} 
 					type="number" 
