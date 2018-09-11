@@ -33,7 +33,9 @@ class MainContainer extends Component{
 				<Grid>
 					<Row>
 						<Col xs={5}>
-							<Panel>
+							<Panel style={{
+								padding: "10px"
+								}}>
 								<CurrencySelector
 									side={"left"}  
 									rates={p.rates} 
@@ -53,7 +55,9 @@ class MainContainer extends Component{
 							<span className="glyphicon glyphicon-arrow-right"></span>
 						</Col>
 						<Col xs={5}>
-							<Panel>
+							<Panel style={{
+								padding: "10px"
+							}}>
 								<CurrencySelector 
 									side={"right"} 
 									rates={p.rates} 
