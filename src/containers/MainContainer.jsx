@@ -12,10 +12,6 @@ const rightInputService = new InputService();
 
 class MainContainer extends Component{
 	
-	constructor(props){
-		super(props);
-	}
-	
 	updateLeftCurrency(currency){
 		this.leftCurrency = currency;
 	}

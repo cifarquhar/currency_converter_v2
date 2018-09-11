@@ -17,9 +17,6 @@ class CurrencySelector extends Component{
 	}
 	
 	render(){
-		
-		console.log(this.longName)
-
 		let options = []
 		let counter = 0;
 		
