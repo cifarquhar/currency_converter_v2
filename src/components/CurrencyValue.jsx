@@ -15,7 +15,7 @@ class CurrencyValue extends Component{
 			let targetValue = targetField.value;
 			targetValue = this.convertToEUR(targetValue);
 			this.activeCurrency = res;
-			this.currencyUnicode = UNICODE[res] + "  ";
+			this.currencyUnicode = UNICODE[res] ? UNICODE[res] + "  " : '\u00A4  ';
 			document.getElementById(this.props.side + "unicode").textContent = this.currencyUnicode;
 			targetValue = this.convertFromEUR(targetValue);
 			targetField.value = targetValue.toFixed(2);
