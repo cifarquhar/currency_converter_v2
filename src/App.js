@@ -6,9 +6,8 @@ import MainContainer from "./containers/MainContainer";
 class App extends Component {
 
   componentDidMount(){
-  const key = "88c0871b1c32feaf2082dc168d45b14e";
   const request = new XMLHttpRequest();
-  request.open("GET", "http://data.fixer.io/api/latest?access_key=" + key);
+  request.open("GET", "http://data.fixer.io/api/latest?access_key=" + process.env.REACT_APP_API_KEY);
   request.onload = function () {
     if (request.status === 200) {
       const jsonString = request.responseText;
