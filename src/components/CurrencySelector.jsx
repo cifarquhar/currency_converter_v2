@@ -18,11 +18,9 @@ class CurrencySelector extends Component{
 	
 	render(){
 		let options = []
-		let counter = 0;
 		
 		CODES.forEach(code => {
-			options.push(<option value={code} key={counter}>{code}</option>)
-			counter +=1;
+			options.push(<option value={code} key={code}>{code}</option>)
 		});
 		
 		return (
