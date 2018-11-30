@@ -11,6 +11,20 @@ const leftInputService = new InputService();
 const rightInputService = new InputService();
 
 class MainContainer extends Component{
+
+	constructor(){
+		super()
+		this.state = {
+			loaded: false,
+			content: null
+		}
+	}
+	
+	componentDidMount(){
+		fetch("http://data.fixer.io/api/latest?access_key=" + process.env.REACT_APP_API_KEY)
+			.then(res => res.json())
+			.then(res => this.setState({loaded: true, content: res}))
+	}
 	
 	updateLeftCurrency(currency){
 		this.leftCurrency = currency;
@@ -21,8 +35,12 @@ class MainContainer extends Component{
 	}
 	
 	render(){
-		const p = this.props;
+		const {loaded, content} = this.state;
+
 		return(
+
+			loaded ?
+
 			<div>
 				<h1>Currency Converter</h1>
 				<h3>Select a currency from each dropdown and enter a value to convert</h3>
@@ -34,12 +52,12 @@ class MainContainer extends Component{
 								}}>
 								<CurrencySelector
 									side={"left"}  
-									rates={p.rates} 
+									rates={content.rates} 
 									selectorService={leftSelectorService}
 								/>
 								<CurrencyValue 
 									side={"left"} 
-									rates={p.rates} 
+									rates={content.rates} 
 									selectorService={leftSelectorService} 
 									outputService={leftInputService} 
 									inputService={rightInputService}
@@ -56,12 +74,12 @@ class MainContainer extends Component{
 							}}>
 								<CurrencySelector 
 									side={"right"} 
-									rates={p.rates} 
+									rates={content.rates} 
 									selectorService={rightSelectorService}
 								/>
 								<CurrencyValue 
 									side={"right"} 
-									rates={p.rates} 
+									rates={content.rates} 
 									selectorService={rightSelectorService} 
 									outputService={rightInputService} 
 									inputService={leftInputService}
@@ -71,6 +89,8 @@ class MainContainer extends Component{
 					</Row>
 				</Grid>
 			</div>
+
+			: <div>Loading...</div>
 			
 		)
 	}

@@ -1,28 +1,11 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import './App.css';
 import MainContainer from "./containers/MainContainer";
 
 class App extends Component {
 
-  componentDidMount(){
-  const request = new XMLHttpRequest();
-  request.open("GET", "http://data.fixer.io/api/latest?access_key=" + process.env.REACT_APP_API_KEY);
-  request.onload = function () {
-    if (request.status === 200) {
-      const jsonString = request.responseText;
-      const data = JSON.parse(jsonString);
-      ReactDOM.render(
-        <MainContainer rates={data.rates} />,
-        document.getElementById('root')
-      );
-    }
-  };
-  request.send();
-}
-
   render() {
-    return null;
+    return (<MainContainer/>);
   }
 }
 
