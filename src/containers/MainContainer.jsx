@@ -36,6 +36,18 @@ class MainContainer extends Component{
 	render(){
 		const {loaded, content} = this.state;
 
+		const leftProps = {
+			side: "left",
+			rates: content ? content.rates : null,
+			selectorService: leftSelectorService
+		}
+
+		const rightProps = {
+			side: "right",
+			rates: content ? content.rates : null,
+			selectorService: rightSelectorService
+		}
+
 		return(
 
 			loaded ?
@@ -49,15 +61,11 @@ class MainContainer extends Component{
 							<Panel style={{
 								padding: "10px"
 								}}>
-								<CurrencySelector
-									side={"left"}  
-									rates={content.rates} 
-									selectorService={leftSelectorService}
+								<CurrencySelector 
+									{...leftProps} 
 								/>
 								<CurrencyValue 
-									side={"left"} 
-									rates={content.rates} 
-									selectorService={leftSelectorService} 
+									{...leftProps}
 									outputService={leftInputService} 
 									inputService={rightInputService}
 								/>
@@ -72,14 +80,10 @@ class MainContainer extends Component{
 								padding: "10px"
 							}}>
 								<CurrencySelector 
-									side={"right"} 
-									rates={content.rates} 
-									selectorService={rightSelectorService}
+									{...rightProps}
 								/>
 								<CurrencyValue 
-									side={"right"} 
-									rates={content.rates} 
-									selectorService={rightSelectorService} 
+									{...rightProps}
 									outputService={rightInputService} 
 									inputService={leftInputService}
 								/>
