@@ -10,7 +10,7 @@ class CurrencyValue extends Component{
 		this.outputService = props.outputService;
 		this.activeCurrency = "AED";
 		this.currencyUnicode = '\u00A4  ';
-		this.selectorSubscription = this.selectorService.currencies().subscribe(res => {
+		this.selectorSubscription = this.selectorService.getObservable().subscribe(res => {
 			let targetField = document.getElementById(this.props.side);
 			let targetValue = targetField.value;
 			targetValue = this.convertToEUR(targetValue);
@@ -20,7 +20,7 @@ class CurrencyValue extends Component{
 			targetValue = this.convertFromEUR(targetValue);
 			targetField.value = targetValue.toFixed(2);
 		});
-		this.inputSubscription = this.inputService.values().subscribe(res => {
+		this.inputSubscription = this.inputService.getObservable().subscribe(res => {
 			const valueToUpdate = this.convertFromEUR(res);
 			document.getElementById(this.props.side).value = valueToUpdate.toFixed(2);
 		});

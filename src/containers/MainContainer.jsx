@@ -2,13 +2,12 @@ import React, {Component} from "react";
 import { Panel, Grid, Row, Col } from "react-bootstrap";
 import CurrencySelector from "../components/CurrencySelector";
 import CurrencyValue from "../components/CurrencyValue";
-import SelectorService from "../models/SelectorService";
-import InputService from "../models/InputService";
+import ObserverService from "../models/ObserverService";
 
-const leftSelectorService = new SelectorService();
-const rightSelectorService = new SelectorService();
-const leftInputService = new InputService();
-const rightInputService = new InputService();
+const leftSelectorService = new ObserverService();
+const rightSelectorService = new ObserverService();
+const leftInputService = new ObserverService();
+const rightInputService = new ObserverService();
 
 class MainContainer extends Component{
 
