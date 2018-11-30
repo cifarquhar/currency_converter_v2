@@ -10,7 +10,7 @@ REACT_APP_API_KEY = "your_key_here"
 
 where your_key_here is your API key.
 
-Currencies can be selected from the two drop-down menus and the amount to convert can be entered into the empty field. Calculations happen dynamically: when a value is entered into one field the otehr is updated. Likewise when the selected currency is changed the corresponding input field is updated. 
+Currencies can be selected from the two drop-down menus and the amount to convert can be entered into the empty field. Calculations happen dynamically: when a value is entered into one field the other is updated. Likewise when the selected currency is changed the corresponding input field is updated. 
 
 Long-form currency names are updated when the drop-down changes. If available, the appropriate currency symbol is displayed in front of the input field. If the unicode symbol is not available it is replaced with the standard default symbol denoting currency (work to add more symbols is ongoing).
 
